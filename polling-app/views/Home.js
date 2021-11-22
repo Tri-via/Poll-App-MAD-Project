@@ -1,59 +1,60 @@
-import React, { useState, useContext } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, FlatList } from 'react-native';
-import RNPoll, {IChoice} from 'react-native-poll';
-import RNAnimated from 'react-native-animated-component';
-import ShowPolls from './ShowPolls';
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-  heightPercentageToDP,
-} from 'react-native-responsive-screen';
-import ShowQuestion from './ShowQuestion';
-import CreatePoll from './CreatePoll';
-import { pollContext, pollDataProvider } from '../Context/PollContext';
-import styles from '../styles/writeBlogStyles';
+import React, { useContext } from 'react';
+import { View, Text, TouchableOpacity } from 'react-native';
+import styles from '../styles/homeStyles';
+import Icon from 'react-native-vector-icons/dist/FontAwesome';
+//import { authContext } from '../Context/AuthContext';
+//import { themeContext } from '../Context/ThemeContext';
+import LoggedInPage from './LoggedInPage';
 
-const renderItem = ({ item }) => {
-    return <ShowQuestion item={item} />;
-};
+const home = ({ navigation }) => {
+    //const contextAuth = useContext(authContext);
+    //const contextTheme = useContext(themeContext);
 
-const Home = ({ navigation }) => {
-    const { Polls } = useContext(pollContext);
-    console.log(pollContext.Provider);
     return (
-        <View style={styles.outerView}>
-           
-            <View style={{ align: "center" }}>
-                <TouchableOpacity
-                style={styles.btnadd}
-            onPress={() => navigation.navigate("CreatePoll")}>
-                    <Text style={styles.text1}>Create a New Poll</Text>
-                </TouchableOpacity>
-            </View>
+        //<>
+            /*{!contextAuth.user && (*/
+                <View style={styles.outerView}>
+                    <View style={styles.headView}>
+                        <Icon name="bookmark" size={45} color="#eca72c" />
+                        <Text style={styles.appName}>POLLIFY</Text>
+                        <Text style={styles.headText}>
+                            One destination to vote opinions
+                        </Text>
+                    </View>
+                    {/*!contextAuth.user &&*/ (
+                        <>
+                            <TouchableOpacity
+                                style={styles.btn1}
+                                onPress={() => navigation.navigate('SignIn')}>
+                                <Text style={styles.text1}>Sign In</Text>
+                            </TouchableOpacity>
+                            <Text style={styles.commentTxt}>Not an existing user?</Text>
+                            <TouchableOpacity
+                                style={styles.btn2}
+                                onPress={() => navigation.navigate('SignUp')}>
+                                <Text style={styles.text2}>Sign Up</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.btn1}
+                        onPress={() => navigation.navigate('LoggedInPage')}>
+                        <Text style={{...styles.text1, fontSize: 15}}>Continue Without Login</Text>
+                    </TouchableOpacity>
+                        </>
+                    )}
 
-            <FlatList
-            data={Polls}
-            renderItem={renderItem}
-            keyExtractor={item => item.id}
-            navigation={navigation}
-            />
-           
-        </View>
+                    {/*{contextAuth.user && (*/}
+                    {/*    <>*/}
+                    {/*        <TouchableOpacity onPress={() => navigation.navigate('Profile')}>*/}
+                    {/*            <Text style={styles.commentTxt}>Visit profile</Text>*/}
+                    {/*        </TouchableOpacity>*/}
+                    {/*    </>*/}
+                    {/*)}*/}
+                </View>
+            /*)}*/
 
-  );
+            
+       // </>
+    );
 };
 
-export default Home;
-
-//const styles = StyleSheet.create({
-//  mainScreen: {
-//    padding: 10,
-//    height: hp(100),
-//  },
-//  heading: {
-//    // fontFamily: 'Sans',
-//    // fontWeight: 'bold',
-//    fontSize: 25,
-//    color: 'black',
-//  },
-//});
+export default home;

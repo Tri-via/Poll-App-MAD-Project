@@ -29,7 +29,7 @@ const CreatePoll = ({ route }) => {
 
     const onAdd = () => {
         console.log(index);
-        setOptions(currentOptions => [...currentOptions, {key:index.toString(), value: enteredOption }]);
+        setOptions(currentOptions => [...currentOptions, {key:index.toString(), value: enteredOption.toString() }]);
         setIndex(currentIndex => currentIndex + 1);
         console.log("inonadd");
         console.log(index);

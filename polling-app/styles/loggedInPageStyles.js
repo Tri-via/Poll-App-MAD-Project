@@ -10,7 +10,8 @@ const styles = StyleSheet.create({
     backgroundColor: bg,
     height: hp('100'),
     padding: 10,
-    justifyContent: 'center',
+        justifyContent: 'center',
+    flex:1,
   },
   createPost: {
     backgroundColor: '#eca72c',

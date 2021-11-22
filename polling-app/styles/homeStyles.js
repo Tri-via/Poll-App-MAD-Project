@@ -39,7 +39,8 @@ const styles = StyleSheet.create({
   outerView: {
     alignItems: 'center',
     backgroundColor: bg,
-    height: hp('100'),
+      height: hp('100'),
+    flex:1,
   },
   outerViewLight: {
     alignItems: 'center',

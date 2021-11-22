@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\components",
+    "\\Context",
+    "\\styles",
+    "\\views"
   ],
+  "SelectedNode": "\\views\\Home.js",
   "PreviewInSolutionExplorer": false
 }

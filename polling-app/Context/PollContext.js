@@ -28,7 +28,7 @@ export const PollDataProvider = props => {
         },
         {
             id: 3,
-            question: "What's your favourite brand?",
+            question: "Who will win this world cup?",
             choices: [
                 { id: 1, choice: 'Nike', votes: 12 },
                 { id: 2, choice: 'Adidas', votes: 1 },
@@ -39,7 +39,7 @@ export const PollDataProvider = props => {
         },
         {
             id: 4,
-            question: "What's your favourite brand?",
+            question: "Who may be the next president?",
             choices: [
                 { id: 1, choice: 'Nike', votes: 12 },
                 { id: 2, choice: 'Adidas', votes: 1 },

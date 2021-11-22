@@ -20,7 +20,8 @@ const styles = StyleSheet.create({
     outerView : {
         // alignItems : 'center',
         backgroundColor : bg,
-        height : hp('100')
+        height: hp('100'),
+        flex:1,
     },
     btn1 : {
         marginTop: hp('5.5'),
